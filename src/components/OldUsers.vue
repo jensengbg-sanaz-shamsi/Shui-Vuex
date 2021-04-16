@@ -1,8 +1,8 @@
 <template>
   <main>
     <section class="login">
-      <input v-model="username" type="text" placeholder="Användarnamn" />
-      <input v-model="password" type="password" placeholder="Lösenord" />
+      <input v-model="username" type="text" placeholder="username" />
+      <input v-model="password" type="password" placeholder="password" />
       <button @click="login">Log in</button>
     </section>
   </main>

@@ -28,11 +28,13 @@ export default new Vuex.Store({
             'authorization': `Bearer ${sessionStorage.getItem('shuiToken')}`,
           }
         })
+        console.log('newhash', flows)
         let decFlows = flows.data.map(flow => {
           let decryptInfo = CryptoJS.AES.decrypt(flow.info, sessionStorage.getItem('shuiKey')).toString(CryptoJS.enc.Utf8)
           flow.info = decryptInfo;
           return flow
         })
+        console.log('flowssss',flows)
         ctx.commit('setFlows', decFlows);
         
       } catch (err) {
@@ -40,9 +42,8 @@ export default new Vuex.Store({
       }
     },
 
-    //new flow
-    async createdflow(ctx, newFlow) {
-      const createdflow = await ax.post(
+    async newFlows(ctx, newFlow) {
+      const newFlows = await ax.post(
         `${ctx.state.API}/flows`, newFlow, {
           headers: {
             'authorization': `Bearer ${sessionStorage.getItem('shuiToken')}`,
@@ -50,7 +51,7 @@ export default new Vuex.Store({
         }
       );
       router.push('/flow')
-      console.log("newflow", createdflow);
+      console.log("newflow", newFlows);
       ctx.dispatch('fetchFlows');
     },
 
@@ -81,7 +82,7 @@ export default new Vuex.Store({
         console.error(error);
       }
     },
-    async followedHashtags(ctx) {
+    async tags(ctx) {
       const followed = await ax.get(`${ctx.state.API}/hashtags`, {
           headers: {
             authorization: `Bearer ${sessionStorage.getItem("shuiToken")}`,
@@ -90,6 +91,7 @@ export default new Vuex.Store({
       );
       ctx.commit("setFollowed", followed);
     },
+    
     async addHashtag(ctx, hashtag) {
       await ax.post(`${ctx.state.API}/hashtags`, { tags: hashtag }, {
           headers: {

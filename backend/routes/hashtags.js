@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 
         res.send(user.tags)
     } catch {
-        res.status(400).send('nooo, hmm')
+        res.status(400).send('OJJJ')
     }
 });
 
@@ -21,12 +21,13 @@ router.post('/', async (req, res) => {
     try {
         const verified_user = jwt.verify(token, process.env.JWT_KEY)
 
-        const users = db
-            .get('users')
+        const users = db.get('users')
             .find({ uuid: verified_user.uuid })
             .get('tags')
             .push(req.body.tags)
             .write()
+        
+        console.log('userhashtag',users)
 
         res.send(users.tags)
     } catch (err) {

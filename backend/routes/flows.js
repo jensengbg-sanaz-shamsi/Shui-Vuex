@@ -2,53 +2,58 @@ const { Router } = require('express');
 const { db } = require('./db');
 const router = new Router();
 const jwt = require('jsonwebtoken');
+const shortid = require('shortid');
+const CryptoJS = require('crypto-js');
 
 router.get('/', (req, res) => {
     const token = req.headers['authorization'].split(' ')[1];
-
-    try {
-        const verified_user = jwt.verify(token, process.env.JWT_KEY);
-        const user = db.get('users').find({ uuid: verified_user.uuid }).value();
-
-        res.send(user.tags)
-    } catch {
-        res.status(400).send('error')
-    }
-});
-
-router.post('/', async (req, res) => {
-    const token = req.headers['authorization'].split(' ')[1]
     try {
         const verified_user = jwt.verify(token, process.env.JWT_KEY)
+        let users = db.get('users').find({ uuid: verified_user.uuid }).value()
 
-        const users = db
-            .get('users')
-            .find({ uuid: verified_user.uuid })
-            .get('tags')
-            .push(req.body.tags)
-            .write()
+        const filterFollowHash = (flows) => {
+            const filterHash = flows.hashtags.filter((hashtag) =>
+                users.tags.includes(hashtag)
+            )
+            return filterHash.length > 0
+        }
 
-        res.send(users.tags)
+        if (users.tags.length > 0) {
+
+            let flows = db.get('flows').filter(filterFollowHash).value()
+            res.status(200).send(flows)
+        } else {
+            let flows = db.get('flows').value()
+            res.status(200).send(flows)
+        }
     } catch (err) {
-        console.log(err)
-        res.status(400).send('error happend')
+        res.status(404).send('Oppsssss!')
     }
 })
 
-router.post('/remove', async (req, res) => {
-    const token = req.headers['authorization'].split(' ')[1];
 
+router.post('/', (req, res) => {
+    let token = req.headers['authorization'].split(' ')[1];
     try {
-        const verified_user = jwt.verify(token, process.env.JWT_KEY);
-        let user = await db.get('users')
-            .find({ uuid: verified_user.uuid })
-            .get('tags').pullAll(req.body.tags).write()
+        const verified_user = jwt.verify(token, process.env.JWT_KEY)
+        let userhash = db.get('users').find({ uuid: verified_user.uuid }).get('hashtagsFollowed').push(...req.body.hashtags).write()
 
-        res.status(200).send(user)
-    } catch (error) {
-        console.log(error)
-        res.status(400).send('error')
+        const user = db.get('users').find({ uuid: verified_user.uuid }).value();
+
+        let newFlow = {
+            flowID: shortid.generate(),
+            date: new Date(),
+            hashtags: req.body.hashtags,
+            info: CryptoJS.AES.encrypt(req.body.info, process.env.PUBLIC_KEY).toString(),
+            owner: user.username
+        };
+
+        db.get('flows').push(newFlow).write()
+        res.status(200).send('Flow added!')
+    } catch (err) {
+        res.status(404).send('Oooopsss!');
+        console.log(err)
     }
-})
+});
 
 module.exports = router;

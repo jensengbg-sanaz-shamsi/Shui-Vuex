@@ -1,9 +1,9 @@
 <template>
   <main>
     <section class="login">
-      <input v-model="username" type="text" placeholder="Användarnamn" />
-      <input v-model="password" type="password" placeholder="Lösenord" />
-      <button @click="create">Registrera</button>
+      <input v-model="username" type="text" placeholder="username" />
+      <input v-model="password" type="password" placeholder="password" />
+      <button @click="create">Register</button>
     </section>
   </main>
 </template>

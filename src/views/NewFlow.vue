@@ -10,7 +10,7 @@
         id=""
       />
       <p class="errorMsg">{{ errorMsg }}</p>
-      <button @click="publishFlow">Publicera</button>
+      <button @click="publishFlow">Publish</button>
     </article>
   </div>
 </template>
@@ -32,7 +32,7 @@ export default {
       }
       else {
         let hashtagArray = this.hashtags.split(',')
-        this.$store.dispatch("createdflow", {
+        this.$store.dispatch("newFlows", {
           info: this.info,
           hashtags: hashtagArray,
         });
