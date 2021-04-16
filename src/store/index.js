@@ -8,7 +8,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    API: 'http://localhost:3000',
+    API: 'http://localhost:5000',
     flows: Array,
     followed: Array,
   },
@@ -91,7 +91,7 @@ export default new Vuex.Store({
       ctx.commit("setFollowed", followed);
     },
     async addHashtag(ctx, hashtag) {
-      await ax.post(`${ctx.state.API}/hashtags`, { hashtagsFollowed: hashtag }, {
+      await ax.post(`${ctx.state.API}/hashtags`, { tags: hashtag }, {
           headers: {
             authorization: `Bearer ${sessionStorage.getItem("shuiToken")}`,
           },
@@ -99,7 +99,7 @@ export default new Vuex.Store({
       );
     },
     async removeHashtag(ctx, hashtag) {
-      await ax.post(`${ctx.state.API}/hashtags/remove`, {hashtagsFollowed: [hashtag]}, {
+      await ax.post(`${ctx.state.API}/hashtags/remove`, {tags: [hashtag]}, {
         headers: {
           'authorization': `Bearer ${sessionStorage.getItem('shuiToken')}`
         }
@@ -115,14 +115,12 @@ export default new Vuex.Store({
       router.push('/removed')
     }
 },
-getters: {
-  allHashtags(state) {
-    let allHashs = state.flows.map((flow) => flow.hashtags);
-    const mergeArr = [].concat.apply([], allHashs);
-    let removeDubs = [...new Set(mergeArr)];
-    return removeDubs;
-  },
-},
-  modules: {
-}
-  })
+  getters: {
+    allHashtags(state) {
+      let allHashs = state.flows.map((flow) => flow.hashtags);
+      const mergeArr = [].concat.apply([], allHashs);
+      let removeDubs = [...new Set(mergeArr)];
+      return removeDubs;
+    },
+  }
+})

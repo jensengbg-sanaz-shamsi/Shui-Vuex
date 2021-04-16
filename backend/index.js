@@ -25,6 +25,6 @@ App.use('/hashtags', hashtags);
 
 const port =  process.env.PORT || 5000;
 
-app.listen(port, () => {
+App.listen(port, () => {
     console.log('Server is up on ' + port );
 });

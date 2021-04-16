@@ -25,12 +25,13 @@ export default {
       }
     }, 
     components: {
-      Flow, Settings
+      Flow,
+      Settings
     },
     computed: {
-     getflows() {
-        return this.$store.state.flows;
-      }
+      getflows() {
+          return this.$store.state.flows;
+        }
     },
     beforeMount(){
       this.$store.dispatch('fetchFlows')
@@ -66,7 +67,7 @@ header {
 }
 
 Settings {
-   width: 100px;
+  width: 100px;
   height: auto;
   background-color: rgb(111, 153, 139);
   display: flex;

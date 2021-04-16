@@ -9,7 +9,7 @@
         <h1>SHUI</h1>
         <h3>FLOW FREELY</h3>
       </div>
-      <Credentials />
+      <OldUsers />
     </header>
     <footer>
       <img class="wave" src="../assets/wave.svg" alt="" />
@@ -18,11 +18,11 @@
 </template>
 
 <script>
-import Credentials from "../components/Credentials"
+import OldUsers from "../components/OldUsers"
 export default {
   name: "Login",
   components: {
-    Credentials,
+    OldUsers,
   },
 }
 </script>

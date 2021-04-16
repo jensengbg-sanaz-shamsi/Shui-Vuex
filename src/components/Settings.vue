@@ -12,7 +12,7 @@
         <img src="../assets/check.svg" @click="addHashtag(hashtag)" class="check" alt="">
       </div>
     </article>
-    <button @click="deleteUser">Shit, theyre on to me!</button>
+    <button @click="deleteUser">Shit, they're on to me!</button>
   </div>
 </template>
 
@@ -31,17 +31,17 @@ export default {
     },
     addHashtag(hashtagValue) {
       this.$store.dispatch("addHashtag", hashtagValue);
-      this.$store.dispatch("followedHashtags");
+      this.$store.dispatch("tags");
       this.$store.dispatch("fetchFlows");
     },
     removeHashtag(index) {
       this.$store.dispatch("removeHashtag", index);  
-      this.$store.dispatch("followedHashtags");
+      this.$store.dispatch("tags");
       this.$store.dispatch("fetchFlows");
     }
   },
   beforeMount() {
-     this.$store.dispatch('followedHashtags');
+    this.$store.dispatch('tags');
   },
   computed: {
     allHashtags() {

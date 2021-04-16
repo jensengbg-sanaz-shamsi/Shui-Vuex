@@ -3,27 +3,30 @@
     <section class="login">
       <input v-model="username" type="text" placeholder="Användarnamn" />
       <input v-model="password" type="password" placeholder="Lösenord" />
-      <button @click="login">Logga in</button>
+      <button @click="create">Registrera</button>
     </section>
   </main>
 </template>
 
 <script>
 export default {
-  name: "Credentials",
+  name: "NewUsers",
   data() {
     return {
       username: '',
-      password: ''
+      password:''
     }
   },
   methods: {
-      login() {
-        this.$store.dispatch('login', {
-          username: this.username, 
-          password: this.password
-        });
-      },
+    create() {
+      this.$store.dispatch('signUp', {
+        username: this.username,
+        password: this.password
+      })
+    },
+      goTo() {
+          this.$router.push('/login')
+      }
   }
 };
 </script>

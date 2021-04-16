@@ -28,13 +28,14 @@ export default {
   methods: {
     publishFlow() {
       if (this.info >= 0) {
-        this.errorMsg = 'Kan inte skicka tom info'
-      } else {
-      let hashtagArray = this.hashtags.split(',')
-      this.$store.dispatch("createdflow", {
-        info: this.info,
-        hashtags: hashtagArray,
-      });
+        this.errorMsg = 'the field is empty!'
+      }
+      else {
+        let hashtagArray = this.hashtags.split(',')
+        this.$store.dispatch("createdflow", {
+          info: this.info,
+          hashtags: hashtagArray,
+        });
       }
       
     },

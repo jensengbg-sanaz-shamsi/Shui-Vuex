@@ -9,8 +9,8 @@
         <h1>SHUI</h1>
         <h3>FLOW FREELY</h3>
       </div>
-      <NewCredentials />
-      <p @click="goTo">Har du redan konto?</p>
+      <NewUsers />
+      <p @click="goTo">Have you already account?</p>
     </header>
     <footer>
       <img class="wave" src="../assets/wave.svg" alt="" />
@@ -19,15 +19,15 @@
 </template>
 
 <script>
-import NewCredentials from "../components/NewCredentials"
+import NewUsers from "../components/NewUsers"
 export default {
   name: "SignUp",
   components: {
-    NewCredentials
+    NewUsers
   },
   methods: {
       goTo() {
-           this.$router.push('/login')
+        this.$router.push('/login')
       }
   }
 }

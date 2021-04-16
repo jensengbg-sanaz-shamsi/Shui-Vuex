@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 
         res.send(user.tags)
     } catch {
-        res.status(400).send('nooo, hmm')
+        res.status(400).send('error')
     }
 });
 
@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
         res.send(users.tags)
     } catch (err) {
         console.log(err)
-        res.status(400).send('whops')
+        res.status(400).send('error happend')
     }
 })
 

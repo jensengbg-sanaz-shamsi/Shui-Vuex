@@ -1,14 +1,14 @@
 <template>
-  <section class="flow">
-      <article class="item">
-          <p class="date"> {{ flowItem.date }} </p>
-          <p> {{ flowItem.info }} </p>
-          <p class="owner"> -{{ flowItem.owner }} </p>
-          <div class="hashtag" v-for="hashtag in flowItem.hashtags" :key="hashtag">
-              <p class="hash"> {{ hashtag }} </p>
-          </div>
-      </article>
-  </section>
+    <section class="flow">
+        <article class="item">
+            <p class="date"> {{ flowItem.date }} </p>
+            <p> {{ flowItem.info }} </p>
+            <p class="owner"> -{{ flowItem.owner }} </p>
+            <div class="hashtag" v-for="hashtag in flowItem.hashtags" :key="hashtag">
+                <p class="hash"> {{ hashtag }} </p>
+            </div>
+        </article>
+    </section>
 </template>
 
 <script>
