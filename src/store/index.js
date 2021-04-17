@@ -28,7 +28,6 @@ export default new Vuex.Store({
             'authorization': `Bearer ${sessionStorage.getItem('shuiToken')}`,
           }
         })
-        console.log('newhash', flows)
         let decFlows = flows.data.map(flow => {
           let decryptInfo = CryptoJS.AES.decrypt(flow.info, sessionStorage.getItem('shuiKey')).toString(CryptoJS.enc.Utf8)
           flow.info = decryptInfo;
@@ -91,7 +90,7 @@ export default new Vuex.Store({
       );
       ctx.commit("setFollowed", followed);
     },
-    
+
     async addHashtag(ctx, hashtag) {
       await ax.post(`${ctx.state.API}/hashtags`, { tags: hashtag }, {
           headers: {

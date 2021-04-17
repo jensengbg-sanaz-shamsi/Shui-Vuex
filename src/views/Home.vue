@@ -1,5 +1,5 @@
 <template>
-  <div class="landing">
+  <div class="homepage">
     <header>
       <img src="../assets/reds.svg" alt="" />
     </header>
@@ -7,7 +7,6 @@
       <div class="mainDiv">
         <img src="../assets/s.svg" alt="" />
         <h1>SHUI</h1>
-        <h3>FLOW FREELY</h3>
       </div>
     </main>
     <footer>
@@ -28,7 +27,7 @@ export default {
 </script>
 
 <style scoped>
-.landing {
+.homepage {
   background-color: #082756;
   display: flex;
   flex-direction: column;

@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
     let token = req.headers['authorization'].split(' ')[1];
     try {
         const verified_user = jwt.verify(token, process.env.JWT_KEY)
-        let userhash = db.get('users').find({ uuid: verified_user.uuid }).get('hashtagsFollowed').push(...req.body.hashtags).write()
+        let userhash = db.get('users').find({ uuid: verified_user.uuid }).get('tags').push(...req.body.hashtags).write()
 
         const user = db.get('users').find({ uuid: verified_user.uuid }).value();
 

@@ -1,13 +1,12 @@
 <template>
   <div class="login">
-    <div class="logored">
+    <div class="logo">
       <img src="../assets/reds.svg" alt="" />
     </div>
     <header>
-      <div class="mainDiv">
+      <div class="content">
         <img src="../assets/s.svg" alt="" />
         <h1>SHUI</h1>
-        <h3>FLOW FREELY</h3>
       </div>
       <NewUsers />
       <p @click="goTo">Have you already account?</p>
@@ -33,19 +32,19 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
 .login {
   background-color: #082756;
   display: flex;
   flex-direction: column;
   margin: 0;
 }
-.logored {
+.logo {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
 }
-.mainDiv {
+.content {
   display: flex;
   margin: auto;
   flex-direction: column;

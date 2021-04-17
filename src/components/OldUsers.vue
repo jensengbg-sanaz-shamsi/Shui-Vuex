@@ -30,10 +30,12 @@ export default {
 
 <style>
 main {
-  margin-top: 3rem;
+  margin: 3rem auto;
 }
 .login {
   margin: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 input {
   width: 310px;
