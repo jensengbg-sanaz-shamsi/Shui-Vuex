@@ -64,6 +64,7 @@ export default new Vuex.Store({
         router.push('/login');
       } catch (err) {
         console.log(err);
+        alert('username already exist!')
       }
     },
     async login(ctx, data) {
@@ -78,6 +79,7 @@ export default new Vuex.Store({
         sessionStorage.setItem("shuiKey", token.data.userkey);
         router.push('/flow');
       } catch (error) {
+        alert('something is wrong!')
         console.error(error);
       }
     },

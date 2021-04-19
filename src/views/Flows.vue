@@ -62,8 +62,8 @@ header {
 .flow {
   border: 1px solid black;
   background-color: #fff;
-  margin: 1rem;
-  margin-bottom: 2rem;
+  margin: 1rem auto;
+  width: 30rem;
 }
 
 Settings {

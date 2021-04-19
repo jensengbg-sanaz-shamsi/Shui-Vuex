@@ -48,6 +48,8 @@ router.post('/', (req, res) => {
             owner: user.username
         };
 
+        console.log('date',newFlow)
+
         db.get('flows').push(newFlow).write()
         res.status(200).send('Flow added!')
     } catch (err) {

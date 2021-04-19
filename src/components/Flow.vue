@@ -23,44 +23,46 @@ export default {
 
 <style scoped>
 
-.item {
-    margin-left: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-.date {
-height: 22px;
-font-family: PT Sans;
-font-style: normal;
-font-weight: normal;
-font-size: 12px;
+    .item {
+        margin-left: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: black;
+    }
+    .date {
+        height: 25px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
 
-letter-spacing: 0.04em;
+        letter-spacing: 0.04em;
 
-color: rgba(0, 0, 0, 0.6);
-}
-.owner {
-    font-weight: bold;
-}
-.hash {
-    padding: 0.5rem;
-}
+        color: rgba(0, 0, 0, 0.6);
+    }
+    .owner {
+        font-weight: bold;
+    }
+    .hash {
+        padding: 0.5rem;
+    }
 
-.hashtag {
-position: static;
-width: 100px;
-height: 23px;
-left: 16px;
-top: 4.5px;
+    .hashtag {
+        position: static;
+        width: 100px;
+        height: 23px;
+        left: 16px;
+        top: 4.5px;
 
-font-family: PT Sans;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 23px;
+        font-family: PT Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 23px;
 
-color: rgba(0, 178, 255, 0.8);
+        color: rgba(0, 178, 255, 0.8);
 
-}
+    }
 </style>

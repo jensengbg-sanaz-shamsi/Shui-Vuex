@@ -1,13 +1,11 @@
 <template>
   <div>
     <article>
-      <textarea v-model="info" type="text" name="" id="" />
+      <textarea v-model="info" type="text"/>
       <input
         v-model="hashtags"
         type="text"
         placeholder="#hashtag"
-        name=""
-        id=""
       />
       <p class="errorMsg">{{ errorMsg }}</p>
       <button @click="publishFlow">Publish</button>
@@ -27,7 +25,7 @@ export default {
   },
   methods: {
     publishFlow() {
-      if (this.info >= 0) {
+      if (this.info.length >= 0) {
         this.errorMsg = 'the field is empty!'
       }
       else {
@@ -53,6 +51,10 @@ div {
 }
 article {
   margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 textarea {
   width: 379px;

@@ -7,6 +7,7 @@
       <div class="content">
         <img src="../assets/s.svg" alt="" />
         <h1>SHUI</h1>
+        <h3>Flow Freely</h3>
       </div>
       <NewUsers />
       <p @click="goTo">Have you already account?</p>
@@ -50,9 +51,7 @@ export default {
   flex-direction: column;
   align-items: center;
 }
-p {
-    color: #ffffff98;
-}
+
 h1 {
   margin-bottom: 0;
   font-family: Cantarell;
@@ -67,7 +66,7 @@ h1 {
 
 h3 {
   height: 23px;
-  font-family: PT Sans;
+  font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;

@@ -1,17 +1,23 @@
 <template>
   <div class="settings">
     <h1>streams</h1>
-    <article class="hashArt" > 
-      <div v-for="(followed, index) in followds.data" :key="index" :hashtag="followed" class="followedHashtags">{{ followed }} 
+    <article class="hashtags" > 
+      <div v-for="(followed, index) in followds.data" :key="index" :hashtag="followed" class="allhashtags">{{ followed }} 
         <p class="remove" @click="removeHashtag(followed)">X</p>
       </div>
     </article>
-    <article class="hashArticle">
-      <input v-model="hashtag" class="hashtag" placeholder="#hashtags"/>
-      <div class="checkDiv">
-        <img src="../assets/check.svg" @click="addHashtag(hashtag)" class="check" alt="">
+
+    <article class="hashtagTitle">
+      <input 
+      type="text" 
+      class="hashtag" 
+      placeholder="#hashtags"
+      v-model="hashtag" />
+      <div class="checkDiv" @click="addHashtag()">
+        <img src="../assets/check.svg" class="check" alt="">
       </div>
     </article>
+
     <button @click="deleteUser">Shit, they're on to me!</button>
   </div>
 </template>
@@ -29,8 +35,8 @@ export default {
     deleteUser() {
       this.$store.dispatch("deleteUser");
     },
-    addHashtag(hashtagValue) {
-      this.$store.dispatch("addHashtag", hashtagValue);
+    addHashtag() {
+      this.$store.dispatch("addHashtag", this.hashtag);
       this.$store.dispatch("tags");
       this.$store.dispatch("fetchFlows");
     },
@@ -90,13 +96,13 @@ button {
   font-size: 24px;
   line-height: 150%;
 }
-.hashArt {
+.hashtags {
   display: grid;
   grid-template-columns: 160px 160px;
   width: 131px;
   margin-left: 20%;
 }
-.followedHashtags {
+.allhashtags {
   min-width: 10px;
   margin: 1rem;
   padding-left: 0.5rem;
@@ -107,7 +113,7 @@ button {
   align-items: center;
   border-radius: 4px;
 }
-.hashArticle {
+.hashtagTitle {
   height: 72px;
   margin: 2rem;
   display: flex;
