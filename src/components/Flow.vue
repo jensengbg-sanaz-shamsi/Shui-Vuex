@@ -73,12 +73,8 @@ export default {
         line-height: 23px;
 
         color: rgba(0, 178, 255, 0.8);
+        display: inline;
 
     }
 
-    @media only screen and (max-width: 600px) {
-        .details {
-            width: 180px;
-        }
-    }
 </style>
