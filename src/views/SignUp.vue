@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style >
+<style scoped>
 .login {
   background-color: #082756;
   display: flex;
@@ -50,6 +50,10 @@ export default {
   margin: auto;
   flex-direction: column;
   align-items: center;
+}
+
+p {
+  color: #ffffff;
 }
 
 h1 {

@@ -1,9 +1,11 @@
 <template>
     <section class="flow">
         <article class="item">
-            <p class="date"> {{ flowItem.date }} </p>
-            <p> {{ flowItem.info }} </p>
-            <p class="owner"> -{{ flowItem.owner }} </p>
+            <div class="details">
+                <p class="date"> {{ flowItem.date }} </p>
+                <p class="info"> {{ flowItem.info }} </p>
+                <p class="owner"> -{{ flowItem.owner }} </p>
+            </div>
             <div class="hashtag" v-for="hashtag in flowItem.hashtags" :key="hashtag">
                 <p class="hash"> {{ hashtag }} </p>
             </div>
@@ -24,12 +26,21 @@ export default {
 <style scoped>
 
     .item {
-        margin-left: 2rem;
+        display: flex;
+        margin: 1rem 2rem;
+    }
+
+    .details {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         color: black;
+        padding-left: 2rem;
+        border: 1px solid black;
+        background-color: #fff;
+        margin: 1rem 0;
+        width: 30rem;
     }
     .date {
         height: 25px;
@@ -42,6 +53,11 @@ export default {
 
         color: rgba(0, 0, 0, 0.6);
     }
+
+    .info {
+        font-size: 20px;
+    }
+
     .owner {
         font-weight: bold;
     }

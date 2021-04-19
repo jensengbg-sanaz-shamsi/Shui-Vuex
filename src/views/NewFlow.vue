@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     publishFlow() {
-      if (this.info.length >= 0) {
+      if (this.info >= 0) {
         this.errorMsg = 'the field is empty!'
       }
       else {
