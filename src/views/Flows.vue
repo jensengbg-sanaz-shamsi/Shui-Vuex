@@ -60,7 +60,13 @@ header {
   background-color: #082756;
 }
 .flow {
-  margin-left: 5rem ;
+  margin: 1rem auto;
+  padding-left: 2rem;
+  border: 1px solid black;
+  background-color: #fff;
+  width: 30rem;
+  height: 12rem;
+  margin-bottom: 2.5rem;
 }
 
 Settings {

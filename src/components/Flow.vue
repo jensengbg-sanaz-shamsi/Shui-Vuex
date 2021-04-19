@@ -24,10 +24,9 @@ export default {
 </script>
 
 <style scoped>
-
     .item {
-        display: flex;
-        margin: 1rem 2rem;
+        display: block;
+        margin: 5px 0;
     }
 
     .details {
@@ -36,11 +35,6 @@ export default {
         align-items: flex-start;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         color: black;
-        padding-left: 2rem;
-        border: 1px solid black;
-        background-color: #fff;
-        margin: 1rem 0;
-        width: 30rem;
     }
     .date {
         height: 25px;
@@ -80,5 +74,11 @@ export default {
 
         color: rgba(0, 178, 255, 0.8);
 
+    }
+
+    @media only screen and (max-width: 600px) {
+        .details {
+            width: 180px;
+        }
     }
 </style>
