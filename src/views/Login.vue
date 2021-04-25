@@ -35,9 +35,12 @@ export default {
     margin: 0;
   }
   .logo {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    position: absolute;
+    height: 24.85px;
+    left: 40px;
+    top: 34px;
+
+    transform: rotate(-180deg);
   }
   .content {
     display: flex;

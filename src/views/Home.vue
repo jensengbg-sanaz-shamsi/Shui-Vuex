@@ -4,7 +4,7 @@
       <img src="../assets/reds.svg" alt="" />
     </header>
     <main>
-      <div class="mainDiv">
+      <div class="content">
         <img src="../assets/s.svg" alt="" />
         <h1>SHUI</h1>
       </div>
@@ -18,10 +18,10 @@
 <script>
 export default {
   name: "Home",
-   mounted() {
-    setTimeout(() => {
-      this.$router.replace("/register");
-    }, 2000);
+    mounted() {
+      setTimeout(() => {
+        this.$router.replace("/register");
+      }, 2000);
   },
 };
 </script>
@@ -33,11 +33,16 @@ export default {
     flex-direction: column;
   }
   header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    position: absolute;
+    width: 19.76px;
+    height: 24.85px;
+    left: 66px;
+    top: 28px;
+
+    background: #082756;
+    transform: rotate(90deg);
   }
-  .mainDiv {
+  .content {
     display: flex;
     flex-direction: column;
     align-items: center;
